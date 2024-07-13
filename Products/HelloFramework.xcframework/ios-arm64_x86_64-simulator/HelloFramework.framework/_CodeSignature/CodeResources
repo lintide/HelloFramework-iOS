@@ -8,9 +8,13 @@
 		<data>
 		PT41DMHyGlxDM6PPa/GFlNkiw08=
 		</data>
+		<key>Headers/HelloLog.h</key>
+		<data>
+		ArYXTkGTMtTUagx1bykw5YyRhDM=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		fcToc13UVILtXZoifMIpS4X+2bQ=
+		MactWZrlaHc8D5c2tOowEe9CcRQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -28,6 +32,17 @@
 			<key>hash2</key>
 			<data>
 			H/pI6LlF7WPJi4GVKqTB6jYI13v2IaLM+wVqM2vpzO4=
+			</data>
+		</dict>
+		<key>Headers/HelloLog.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ArYXTkGTMtTUagx1bykw5YyRhDM=
+			</data>
+			<key>hash2</key>
+			<data>
+			RezFup945WOQx2mDitJ1zUYCRjY3QcW6S6ALWgncivI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

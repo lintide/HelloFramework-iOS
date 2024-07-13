@@ -27,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F10CEA62C3FC10E00CC2F8D /* HelloFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HelloFramework.framework; sourceTree = "<group>"; };
 		9F9B920D2C3E743A0010E02F /* HelloFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HelloFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F9B92102C3E743A0010E02F /* HelloFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloFramework.h; sourceTree = "<group>"; };
 		9F9B92172C3E79830010E02F /* HelloLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloLog.h; sourceTree = "<group>"; };
@@ -45,19 +44,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F10CEA72C3FC10E00CC2F8D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9F10CEA62C3FC10E00CC2F8D /* HelloFramework.framework */,
-			);
-			path = Products;
-			sourceTree = "<group>";
-		};
 		9F9B92032C3E743A0010E02F = {
 			isa = PBXGroup;
 			children = (
 				9F9B920F2C3E743A0010E02F /* HelloFramework */,
-				9F10CEA72C3FC10E00CC2F8D /* Products */,
 				9F9B920E2C3E743A0010E02F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -175,7 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${ACTION}\" = \"build\" ]] \nthen\n    INSTALL_DIR=${SRCROOT}/Products/${PROJECT_NAME}.framework\n    DEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\n    SIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\n    \n    echo $INSTALL_DIR\n\n    if [[ -d \"${INSTALL_DIR}\" ]]\n    then\n        rm -rf \"${INSTALL_DIR}\"\n    fi\n\n    mkdir -p \"${INSTALL_DIR}\"\n\n    cp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n    lipo -create \"${DEVICE_DIR}/${PROJECT_NAME}\" \"${SIMULATOR_DIR}/${PROJECT_NAME}\" -output \"${INSTALL_DIR}/${PROJECT_NAME}\"\n\n    open \"${SRCROOT}/Products\"\nfi\n";
+			shellScript = "if [[ \"${ACTION}\" = \"build\" ]] \nthen\n    INSTALL_DIR=${SRCROOT}/Products/${PROJECT_NAME}.xcframework\n    DEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\n    SIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\n    \n    echo $INSTALL_DIR\n\n    if [[ -d \"${INSTALL_DIR}\" ]]\n    then\n        rm -rf \"${INSTALL_DIR}\"\n    fi\n\n    mkdir -p \"${INSTALL_DIR}\"\n\n    cp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n    xcodebuild -create-xcframework -framework \"${DEVICE_DIR}\" -framework \"${SIMULATOR_DIR}\" -output \"${INSTALL_DIR}\"\n\n    open \"${SRCROOT}/Products\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -324,6 +314,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -355,6 +346,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
